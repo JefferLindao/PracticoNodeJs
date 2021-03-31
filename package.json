@@ -1,0 +1,14 @@
+{
+  "name": "practiconodejs",
+  "version": "1.0.0",
+  "description": "```Haz el backend completo de la red social minimalista PlatziSocial. Crea microservicios con usuarios, posts, follow e interacciones.```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeffer Lindao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
