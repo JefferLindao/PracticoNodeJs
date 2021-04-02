@@ -29,7 +29,7 @@ function get(req, res) {
 }
 
 function upsert(req, res) {
-  controller.upsed(req, res)
+  controller.upsed(req.body)
     .then((user) => {
       response.sucess(req, res, user, 201);
     }).catch((err) => {
