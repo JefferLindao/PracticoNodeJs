@@ -10,32 +10,27 @@ router.get('/:id', get);
 router.post('/', upsert);
 router.put('/', secure('update'), upsert);
 
-function list(req, res) {
+function list(req, res, next) {
   controller.list()
     .then((lista) => {
       response.sucess(req, res, lista, 200);
-    }).catch((err) => {
-      response.error(req, res, err.message, 500)
-    });
+    }).catch((next));
 }
 
-function get(req, res) {
+function get(req, res, next) {
   controller.get(req.params.id)
     .then((user) => {
       response.sucess(req, res, user, 200);
-    }).catch((err) => {
-      response.error(req, res, err.message, 500);
-    });
+    }).catch((next));
+
   response.sucess(req, res, lista, 200);
 }
 
-function upsert(req, res) {
+function upsert(req, res, next) {
   controller.upsed(req.body)
     .then((user) => {
       response.sucess(req, res, user, 201);
-    }).catch((err) => {
-      response.error(req, res, err.message, 500);
-    });
+    }).catch((next));
 }
 
 module.exports = router;
