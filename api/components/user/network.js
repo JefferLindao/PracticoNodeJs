@@ -22,8 +22,6 @@ function get(req, res, next) {
     .then((user) => {
       response.sucess(req, res, user, 200);
     }).catch((next));
-
-  response.sucess(req, res, lista, 200);
 }
 
 function upsert(req, res, next) {

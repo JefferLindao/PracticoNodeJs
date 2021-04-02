@@ -11,15 +11,16 @@ module.exports = function (injectedStore) {
     const data = await store.query(TABLA, { username: username });
 
     return bcrypt.compare(password, data.password)
-    .then((sonIguales) => {
-      if (sonIguales) {
-        return auth.sign(data);
-      } else {
-        throw new Error('Informacion infalida')
-      }
-    }).catch((err) => {
-      
-    });
+      .then((sonIguales) => {
+        if (sonIguales === true) {
+          return auth.sign(data);
+        } else {
+          throw new Error('Informacion infalida')
+        }
+      }).catch((err) => {
+        throw error(err.message, 403)
+      });
+
   }
 
   async function upsert(data) {
